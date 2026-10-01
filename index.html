@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>For My Bebuuu ❤️</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=DM+Sans:wght@400;500;700&display=swap');
+:root{
+ --ink:#38272e;--muted:#765f66;--paper:#fff9f0;--paper2:#fff0f4;
+ --pink:#e887a5;--pink2:#ffc9d8;--red:#bd5577;--gold:#e4b85d;
+ --shadow:0 22px 70px rgba(70,38,48,.18);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#e8d7c8;color:var(--ink);font-family:"DM Sans",system-ui,sans-serif;overflow-x:hidden}
+button{font:inherit}
+#app{min-height:100vh;position:relative}
+.bg{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:0}
+.bg:before{content:"";position:absolute;inset:0;background:
+ radial-gradient(circle at 10% 15%,#fff7 0 2px,transparent 3px),
+ radial-gradient(circle at 85% 30%,#fff6 0 2px,transparent 3px);
+ background-size:90px 90px,120px 120px;opacity:.7}
+.shell{position:relative;z-index:2;width:min(900px,calc(100% - 26px));margin:auto;padding:22px 0 70px}
+.page{display:none;animation:pageIn .7s ease both}
+.page.active{display:block}
+@keyframes pageIn{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:none}}
+.paper{position:relative;background:var(--paper);border-radius:28px;padding:clamp(22px,5vw,52px);box-shadow:var(--shadow);overflow:hidden}
+.paper:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.3;background-image:radial-gradient(#8b6262 0.55px,transparent .55px);background-size:17px 17px}
+.content{position:relative;z-index:3}
+.center{text-align:center}
+.hand{font-family:Caveat,cursive}
+h1,h2,h3{font-family:Caveat,cursive}
+h1{font-size:clamp(54px,10vw,92px);line-height:.85;margin:16px 0}
+h2{font-size:clamp(40px,7vw,62px);line-height:.9;margin:8px 0 18px}
+p{line-height:1.65}
+.muted{color:var(--muted)}
+.tiny{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#92727b}
+.btn{border:0;border-radius:999px;background:var(--pink);color:#fff;padding:14px 23px;font-weight:700;cursor:pointer;box-shadow:0 9px 22px #bb5d7a35;transition:.18s}
+.btn:hover{transform:translateY(-2px)}
+.btn.alt{background:#fff;color:var(--ink);border:1px solid #ead1d6;box-shadow:none}
+.btn:active{transform:scale(.96)}
+.music{position:fixed;right:16px;top:16px;z-index:30;border:0;width:50px;height:50px;border-radius:50%;background:#fff;color:#9b5570;box-shadow:0 9px 30px #0002;display:none;cursor:pointer}
+.music.on{display:block;animation:float 2s ease-in-out infinite}
+@keyframes float{50%{transform:translateY(-5px)}}
+.gift{width:190px;height:155px;margin:20px auto 10px;position:relative;cursor:pointer;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px) rotate(1deg)}}
+.gift .box{position:absolute;bottom:0;left:16px;width:158px;height:102px;background:linear-gradient(135deg,#f39ab2,#d9678c);border-radius:8px 8px 16px 16px;box-shadow:0 18px 28px #a35a6a35}
+.gift .lid{position:absolute;left:7px;top:40px;width:176px;height:36px;background:#ed86a3;border-radius:10px;z-index:3;transform:rotate(-1deg)}
+.gift .ribbon{position:absolute;left:78px;top:39px;width:35px;height:116px;background:#f8d3a8;z-index:4}
+.gift .bow{position:absolute;left:69px;top:21px;font-size:50px;z-index:5}
+.gift.open .lid{animation:lidOpen .8s ease forwards}
+.gift.open .bow{animation:bowAway .8s ease forwards}
+@keyframes lidOpen{to{transform:translateY(-70px) rotate(-8deg);opacity:0}}
+@keyframes bowAway{to{transform:translateY(-80px) scale(1.2);opacity:0}}
+.heartbig{font-size:76px;display:inline-block;animation:heartbeat 1.4s infinite}
+@keyframes heartbeat{45%{transform:scale(1.15)}}
+.pengus{position:absolute;inset:0;pointer-events:none;z-index:4}
+.pengu{position:absolute;font-size:34px;animation:waddle 5s linear infinite}
+.p1{left:-45px;bottom:12%;animation-delay:.2s}.p2{right:-45px;top:22%;animation-delay:1.7s}.p3{left:20%;top:-35px;animation-delay:3s}
+@keyframes waddle{0%{transform:translateX(0) rotate(-5deg)}50%{transform:translateX(180px) rotate(5deg)}100%{transform:translateX(360px) rotate(-5deg);opacity:0}}
+.spark{position:fixed;pointer-events:none;z-index:50;font-size:24px;animation:burst 1.15s ease-out forwards}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(.7)}100%{opacity:0;transform:translate(var(--x),var(--y)) rotate(30deg) scale(1.5)}}
+.progress{height:8px;border-radius:99px;background:#eedce0;overflow:hidden;margin-bottom:20px}
+.progress>i{display:block;height:100%;background:var(--pink);width:0;transition:.4s}
+.question{font-family:Caveat,cursive;font-size:clamp(35px,6vw,55px);line-height:1.05;min-height:120px;display:flex;align-items:center;justify-content:center;text-align:center}
+.reaction{min-height:56px;text-align:center;font-family:Caveat,cursive;font-size:28px;color:var(--red);padding:8px}
+.answers{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.scrapHead{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.scrapGrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:25px}
+.polaroid{background:#fff;padding:11px 11px 35px;box-shadow:0 13px 27px #55323a22;position:relative;transform:rotate(var(--r));transition:.25s;cursor:pointer}
+.polaroid:hover{transform:rotate(0) translateY(-6px)}
+.polaroid:before{content:"";position:absolute;width:74px;height:21px;background:#e8d19a99;top:-9px;left:calc(50% - 37px);transform:rotate(-3deg)}
+.polaroid img,.polaroid video{width:100%;display:block;aspect-ratio:4/5;object-fit:cover;background:#eee}
+.caption{font-family:Caveat,cursive;font-size:25px;line-height:1.02;margin-top:10px}
+.memoryTag{font-size:11px;color:#9a6c77;text-transform:uppercase;letter-spacing:.08em;margin-top:8px}
+.full{grid-column:1/-1}
+.videoCard{background:#fff7f1;border-radius:22px;padding:14px;box-shadow:0 10px 25px #55323a15}
+.videoCard video{width:100%;max-height:520px;border-radius:15px;background:#1f191c}
+.quizCard,.rapidCard{background:linear-gradient(135deg,#fff9f0,#fff0f4);border:1px solid #edd5dc;border-radius:22px;padding:22px;margin-top:15px}
+.option{display:block;width:100%;text-align:left;border:1px solid #ead4d9;background:#fff;border-radius:16px;padding:15px;margin:9px 0;cursor:pointer;transition:.15s}
+.option:hover{background:#fff5f7;transform:translateX(3px)}
+.letter{font-family:Caveat,cursive;font-size:27px;line-height:1.3;white-space:pre-line}
+.stamp{display:inline-block;border:2px dashed #d8899f;color:#a55c76;padding:8px 13px;border-radius:12px;transform:rotate(-4deg);font-family:Caveat;font-size:24px}
+.finalPaper{background:#292025;color:#fff4f6}
+.finalPaper .muted{color:#e8cdd5}
+.finalPaper:after{opacity:.08}
+.finalLine{font-family:Caveat,cursive;font-size:27px;line-height:1.35;white-space:pre-line}
+.lyric{font-family:Caveat,cursive;font-size:32px;color:#ad5b76;opacity:0;transform:translateY(10px);transition:.7s}
+.lyric.show{opacity:1;transform:none}
+.hidden{display:none!important}
+@media(max-width:650px){
+ .shell{width:min(100% - 16px,900px);padding-top:8px}
+ .paper{border-radius:22px;padding:22px 17px}
+ .scrapGrid{grid-template-columns:1fr;gap:18px}
+ .full{grid-column:auto}
+ .pengu{font-size:27px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+}
+
+/* extra games */
+.gameDeck{display:grid;gap:18px;margin-top:20px}
+.gamePanel{background:linear-gradient(135deg,#fffaf2,#fff0f5);border:1px solid #edd5dc;border-radius:24px;padding:22px;box-shadow:0 10px 25px #55323a12}
+.gamePanel h3{font-size:34px;margin:0 0 8px}
+.heartArena{height:280px;border-radius:20px;background:linear-gradient(#fff5f8,#ffe9f0);position:relative;overflow:hidden;border:2px dashed #e5a4b7;cursor:pointer}
+.fallHeart{position:absolute;font-size:32px;cursor:pointer;user-select:none;animation:fall 2.4s linear forwards}
+@keyframes fall{from{transform:translateY(-50px) rotate(0)}to{transform:translateY(320px) rotate(260deg)}}
+.score{font-family:Caveat,cursive;font-size:29px;color:#a85b76}
+.penguCatch{height:220px;position:relative;border-radius:20px;background:#fff9ee;overflow:hidden;border:2px dashed #d9b6bf}
+.runningPengu{position:absolute;font-size:52px;cursor:pointer;bottom:20px;animation:runPengu 3.8s linear infinite}
+@keyframes runPengu{0%{left:-70px;transform:scaleX(1)}49%{left:calc(100% - 10px);transform:scaleX(1)}50%{transform:scaleX(-1)}100%{left:-70px;transform:scaleX(-1)}}
+.spinWheel{width:210px;height:210px;border-radius:50%;margin:15px auto;background:conic-gradient(#f3a1b7 0 60deg,#ffe1b0 60deg 120deg,#d9edf0 120deg 180deg,#f5c9d7 180deg 240deg,#e8d7b6 240deg 300deg,#cde4d7 300deg 360deg);border:8px solid #fff;box-shadow:0 12px 28px #55323a20;transition:transform 1s cubic-bezier(.17,.67,.15,1.02);position:relative}
+.spinWheel:after{content:"❤️";position:absolute;inset:0;display:grid;place-items:center;font-size:45px}
+.audioBox{margin:14px auto 4px;max-width:430px;background:#fff;border:1px solid #efd6dc;border-radius:18px;padding:12px;box-shadow:0 8px 20px #55323a12}
+.audioBox audio{width:100%;height:38px}
+.audioStatus{font-family:Caveat,cursive;font-size:24px;color:#a65d75;min-height:32px}
+</style>
+</head>
+<body>
+<div id="app">
+<div class="bg"></div>
+<button class="music" id="musicBtn" aria-label="Pause or play music">🎵</button>
+<div class="shell">
+
+<section class="page active" id="p0">
+ <div class="paper center">
+  <div class="content">
+   <div class="pengus"><span class="pengu p1">🐧</span><span class="pengu p2">🐧</span><span class="pengu p3">🐧</span></div>
+   <div class="gift" id="gift" aria-label="Open gift">
+    <div class="bow">🎀</div><div class="lid"></div><div class="ribbon"></div><div class="box"></div>
+   </div>
+   <div class="tiny">a little digital gift for my bebuuu</div>
+   <h1>For my<br>Bebuuu ❤️</h1>
+   <p class="muted hand" style="font-size:28px">abeee ek chotu sa gift h tere liye…</p>
+   <button class="btn" id="openGift">OPEN KAR DUKKARRR 🎁</button>
+   <p class="tiny" style="margin-top:14px">tap to open • music starts here</p><div class="audioBox">
+  <div class="tiny">🎵 HAAREYA — STARTS FROM 0:10</div>
+  <audio id="visibleAudio" controls preload="auto"></audio>
+  <div class="audioStatus" id="musicStatus">tap OPEN — music starts ❤️</div>
+</div>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="p1">
+ <div class="paper">
+  <div class="content">
+   <div class="tiny">LEVEL 01 • BEBUUU TEST</div>
+   <div class="progress"><i id="qbar"></i></div>
+   <div class="question" id="qtext"></div>
+   <div class="answers">
+    <button class="btn" id="yesBtn">YESSS ❤️</button>
+    <button class="btn alt" id="noBtn">NO 😭</button>
+   </div>
+   <div class="reaction" id="reaction"></div>
+   <div class="center"><button class="btn hidden" id="qNext">NEXT →</button></div>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="p2">
+ <div class="paper">
+  <div class="content">
+   <div class="tiny">LEVEL 02 • MEMORY CHECK 🧠</div>
+   <h2>ab dekhte h dukkarr ko kitna yaad h 😭</h2>
+   <div class="quizCard" id="quizBox"></div>
+   <div class="center"><button class="btn" id="quizBtn">START 🥹</button></div>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="p3">
+ <div class="paper">
+  <div class="content">
+   <div class="pengus"><span class="pengu p2">🐧</span></div>
+   <div class="scrapHead">
+    <div><div class="tiny">LEVEL 03 • OUR LITTLE SCRAPBOOK</div><h2>ab yaadein dekh meri bebuuu ❤️</h2></div>
+    <span class="stamp">3 years → us again</span>
+   </div>
+   <p class="muted hand" style="font-size:27px">“normal gallery nahi h ye… isme meri bakchodi bhi h aur bohot saara pyaar bhi 😭❤️”</p>
+   <div class="scrapGrid" id="photoGrid"></div>
+   <div class="center" style="margin-top:28px"><button class="btn" id="videosBtn">AB VIDEOS BHI DEKH 🎥❤️</button></div>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="p4">
+ <div class="paper">
+  <div class="content">
+   <div class="tiny">LEVEL 04 • LITTLE MOVIE 🎥</div>
+   <h2>hamari choti si movie</h2>
+   <p class="muted">tap play… aur VC pe mereko bata kaunsa moment sabse zyada pasand aaya 😭❤️</p>
+   <div id="videoGrid"></div>
+   <div class="center" style="margin-top:26px"><button class="btn" id="rapidBtn">AB RAPID FIRE KAR 😭😂</button></div>
+  </div>
+ </div>
+</section>
+
+<section class="page" id="p5">
+ <div class="paper">
+  <div class="content">
+   <div class="tiny">LEVEL 05 • RAPID FIRE ⚡</div>
+   <h2>jaldi answer kar dukkarr</h2>
+   <div class="rapidCard">
+    <div class="question" id="rapidQ"></div>
+    <div class="answers"><button class="btn" id="r1"></button><button class="btn alt" id="r2"></button></div>
+    <div class="reaction" id="rapidReaction"></div>
+   </div>
+  </div>
+ </div>
+</section>
+
+
+
+<section class="page" id="p6">
+ <div class="paper">
+  <div class="content">
+   <div class="tiny">BONUS LEVEL • AUR BAKCHODI 😭❤️</div>
+   <h2>abhi aur games baaki h dukkarr</h2>
+   <p class="muted hand" style="font-size:27px">catch-watch nahi 😭 ab thode alag wale games khelenge.</p>
+
+   <div class="gameDeck">
+
+    <div class="gamePanel">
+      <h3>🧠 Memory Match</h3>
+      <p>Same emojis ki pairs match kar. Dekhte h meri bebuuu ki memory kitni tez h 😭😂</p>
+      <div id="memoryBoard" style="display:grid;grid-template-columns:repeat(4,1fr);gap:9px;max-width:420px;margin:15px auto"></div>
+      <div class="score" id="memoryScore">Moves: 0</div>
+      <div class="center"><button class="btn" id="memoryStart">START MEMORY 🧠</button></div>
+      <div class="reaction" id="memoryReaction"></div>
+    </div>
+
+    <div class="gamePanel">
+      <h3>💌 Build Our Date</h3>
+      <p>Apni perfect date choose kar — ek ek option select kar 😭❤️</p>
+      <div id="dateGame"></div>
+      <div class="reaction" id="dateReaction"></div>
+    </div>
+
+    <div class="gamePanel">
+      <h3>🔐 Unlock Bebuuu</h3>
+      <p>3 cute clues solve kar aur secret message unlock kar 😭❤️</p>
+      <div id="clueGame"></div>
+      <div class="reaction" id="clueReaction"></div>
+    </div>
+
+    <div class="gamePanel">
+      <h3>🎰 Pick One — No Thinking</h3>
+      <p>Screen pe 3 envelopes hain. Ek choose kar. Jo niklega woh karna padega 😭😂</p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:18px 0">
+        <button class="btn alt mystery" data-i="0">💌</button>
+        <button class="btn alt mystery" data-i="1">💌</button>
+        <button class="btn alt mystery" data-i="2">💌</button>
+      </div>
+      <div class="reaction" id="mysteryReaction"></div>
+    </div>
+
+   </div>
+
+   <div class="center" style="margin-top:25px">
+     <button class="btn" id="letterBtn">AB LETTER PADH 🥹❤️</button>
+   </div>
+  </div>
+ </div>
+</section>
+
+
+<section class="page" id="p7">
+ <div class="paper">
+  <div class="content">
+   <div class="tiny">LAST PAGE • NO BAKCHODI NOW 🥹</div>
+   <h2>ab thoda sa serious ho ja…</h2>
+   <div class="letter">Bebuuu,
+
+main kabhi kabhi properly bol nahi pata yr. Kabhi bakchodi me nikal jaata hu, kabhi teko irritate karta hu, kabhi “galeech h tu” bolke khud hi hasne lagta hu 😭😂
+
+but sach me, tu meri life me bohottt special h. 3 saal ka gap tha, phir 25 July ko Seawoods me tu mere saamne thi… aur uske baad jo kuch hua na, me abhi bhi sochta hu toh smile aa jaati h.
+
+tera anxiety me palat jaana, mera tera haath pakadna, ISKCON jaana, firse ek dusre ko choose karna… ye sab mere liye bohot zyada special h.
+
+tere legs meri thigh pe, tera pengu, tera T-shirt, tera “bubbuuu”, tera mujhe ragebite karna, mujhe pareshan karna, games khelna, masti karna… bhaiii ye sab meri favourite cheeze h 😭❤️
+
+please cheeze share kara kar dukkarr. Kuch bhi ho, mereko bata. Tujhe akela carry karte hue dekhna mujhe pasand nahi.
+
+me future ka har detail nahi jaanta, but itna pata h ki me tujhe apne future me imagine karta hu. Ek din shaadi ke mandap me bhi 😭❤️
+
+bas aise hi meri bebuuu bani rehna. baaki masti, bakchodi, fights, hugs — sab kar lenge.
+
+I love youuu ❤️</div>
+   <div class="center" style="margin-top:24px"><button class="btn" id="finalBtn">LAST SURPRISE 🥹❤️</button></div>
+  </div>
+ </div>
+</section>
+<section class="page" id="p8">
+ <div class="paper finalPaper center">
+  <div class="content">
+   <div class="heartbig">❤️</div>
+   <div class="lyric" id="lyric">“Haareya mein dil haareya…”</div>
+   <h1 style="margin-top:25px">I LOVE YOUUU<br>BEBUUUU ❤️</h1>
+   <div class="finalLine">Hu tane ghanooo prem karu chu ❤️
+Tu mari life ma ghani j special che, ane hu tane kyarey lose karva nathi maangto. 🥹
+
+Tari sathe rehvu, tari sathe masti karvi ane tane khush jovu — mane aa badhu ghanu game che. 🫶🏻
+
+Bas aavi j rite hamesha mari bebuuu bani ne rehje, okay? ❤️
+
+I love youuu bebuuu, ghanooo ghanooo ghanooo. 😭❤️
+
+— Taro Bubbuuu, taro Chidkokluuu 🫶🏻</div>
+   <p class="muted hand" style="font-size:28px;margin-top:25px">Happy October 1, meri bebuuu ❤️</p>
+  </div>
+ </div>
+</section>
+</div>
+</div>
+
+<audio id="audio" preload="auto" loop></audio>
+
+<script>
+const questions=[{"q": "Tu apne Bubbuuu se bohotttt pyaar karti h? ❤️", "yes": "HURAYYYY 😭❤️ JANTA THA MEKO DUKKARRR, GALEECH CHL AAGE BOL..."}, {"q": "Tu mere saath full galeech banegi? 😭😂", "yes": "HURAYYYY 😭❤️ JANTA THA MEKO DUKKARRR, GALEECH CHL AAGE BOL..."}, {"q": "Tu mere saath full naughty-naughty rahegi? 👀❤️", "yes": "HUHHHH 😭 PATA HI THA MEKO HAWASIIII HEHE 👀😂❤️"}, {"q": "Tu mereko life bhar irritate karegi? 😭", "yes": "HURAYYYY 😭❤️ JANTA THA MEKO DUKKARRR, GALEECH CHL AAGE BOL..."}, {"q": "Tu meri bebuuuuuu banegiiii? 🥹❤️", "yes": "HURAYYYY 😭❤️ JANTA THA MEKO, MERI HI BEBUUU H TU DUKKARRR"}, {"q": "Tu mere saath life bhar bakchodi + masti karegi? 😭❤️", "yes": "KYA HOGA RE PGLUUU 😭😂 HURAYYYY JANTA THA MEKO"}], captions={"IMG_1949.jpeg": "mera laal pandit 😭❤️😂", "IMG_1964.jpeg": "mera choomudaaaa 🥹❤️ jaida hi pyrri lagti h tu yr… ab isko bina pareshan kare kaise rahu 😭😂", "927e9405-a4fd-4c65-8c47-2b9cb9fb0b64.jpeg": "yeh toh hamesha karunga seva teri dukkarr 😭😂❤️", "IMG_3015.jpeg": "abeee ye smile dekh 😭❤️ meri bebuuu jaida hi pyrri h", "IMG_3014.jpeg": "meri bebuuu ❤️ bas tujhe dekh ke smile aa jaati h", "IMG_3016.jpeg": "galeech h tu 😂❤️ but meri favourite galeech", "IMG_2775.jpeg": "abeee itni pyrri kyu lag rahi h dukkarr 😭❤️", "IMG_2764.jpeg": "hamari wali masti 😭😂❤️", "IMG_2761.jpeg": "ek aur memory meri bebuuu ke naam 🥹❤️", "IMG_3050.jpeg": "shopping bhi aur bakchodi bhi obviously 😭😂", "IMG_3122.jpeg": "mera laal pandit 😭❤️", "IMG_2861.jpeg": "random photo but obviously ye bhi daalni thi 😭❤️", "IMG_2862.jpeg": "tu kahin bhi ho, meri nazar tujhe dhoond hi leti h 😭❤️", "IMG_2836.jpeg": "ye bhi dekh dukkarr 😂❤️", "IMG_2311.jpeg": "abeee meri choomuda 🥹❤️", "IMG_2355.jpeg": "meri cute si bebuuu 😭❤️", "IMG_3191.jpeg": "isko dekho 😭😂 fir bolti h me teko pareshan karta hu", "IMG_3046.jpeg": "meri bebuuu ki random random memories 🫶🏻", "680e012d-9ed9-447e-907e-e1e820f6cfa2.jpeg": "obviously ye photo bhi daalni thi 😭❤️", "dda57169-c31c-487e-9dc4-a765e9872d4d.jpeg": "abeee meri bebuuu 😭❤️"}, videoCaptions={"01_cute_toothbrush.mp4": "dekho meri bebuuu 😭❤️ itni cute kaise h", "02_arcade_memory.mp4": "masti mode ON 😭😂", "03_shopping_bebuuu.mp4": "shopping + tu = me pareshan obviously 😂❤️", "04_playful_store.mp4": "galeech behaviour spotted 😭😂", "05_together.mp4": "bas aise hi tere saath rehna h 🥹❤️", "06_video_call.mp4": "distance ho ya VC… meri bebuuu toh meri bebuuu h ❤️", "5750082C-724C-4A3F-89C4-3A7FF890B3C7.mp4": "ek aur memory jo mujhe bohot pasand h 🥹", "Video-16589.mp4": "yeh bhi meri favourite memories me se h ❤️", "Video-30073.mp4": "abeee 😂❤️", "1790509577640386.mp4": "meri bebuuu being meri bebuuu 😭❤️", "DE3F8C59-FF6A-4286-B62B-28933B7A69EC.mp4": "bas tu aur me, enough ❤️", "DCB6BA2E-3B6A-48CE-83A1-0CA1BDA657F5.mp4": "ek aur little memory 🥹❤️"}, photos=["680e012d-9ed9-447e-907e-e1e820f6cfa2.jpeg", "927e9405-a4fd-4c65-8c47-2b9cb9fb0b64.jpeg", "IMG_1949.jpeg", "IMG_1964.jpeg", "IMG_2311.jpeg", "IMG_2355.jpeg", "IMG_2761.jpeg", "IMG_2764.jpeg", "IMG_2836.jpeg", "IMG_2861.jpeg", "IMG_2862.jpeg", "IMG_3010.jpeg", "IMG_3014.jpeg", "IMG_3015.jpeg", "IMG_3016.jpeg", "IMG_3046.jpeg", "IMG_3050.jpeg", "IMG_3122.jpeg", "IMG_3191.jpeg", "dda57169-c31c-487e-9dc4-a765e9872d4d.jpeg", "IMG_2775.jpeg"], videos=["5750082C-724C-4A3F-89C4-3A7FF890B3C7.mp4", "DCB6BA2E-3B6A-48CE-83A1-0CA1BDA657F5.mp4", "01_cute_toothbrush.mp4", "02_arcade_memory.mp4", "03_shopping_bebuuu.mp4", "04_playful_store.mp4", "05_together.mp4"];
+const pages=[...document.querySelectorAll('.page')];
+const $=s=>document.querySelector(s);
+function go(n){pages.forEach((p,i)=>p.classList.toggle('active',i===n));window.scrollTo({top:0,behavior:'smooth'});}
+function burst(ch='❤️',n=8){for(let i=0;i<n;i++){let e=document.createElement('span');e.className='spark';e.textContent=ch;e.style.left=(35+Math.random()*30)+'vw';e.style.top=(35+Math.random()*30)+'vh';e.style.setProperty('--x',((Math.random()-.5)*260)+'px');e.style.setProperty('--y',((Math.random()-.5)*260)+'px');document.body.appendChild(e);setTimeout(()=>e.remove(),1200)}}
+
+/* MUSIC — local asset, starts immediately from 0:10 after the gift tap */
+const audio=$('#audio'), visibleAudio=$('#visibleAudio'), status=$('#musicStatus');
+if(audio) audio.src='assets/Haareya.mp3';
+if(visibleAudio) visibleAudio.src='assets/Haareya.mp3';
+function playHaareya(){
+  try{audio.currentTime=.10;if(visibleAudio)visibleAudio.currentTime=.10}catch(e){}
+  audio.play().then(()=>{
+    if(status)status.textContent='🎵 Haareya chal rahi h bebuuu ❤️';
+  }).catch(()=>{
+    if(status)status.textContent='▶ PLAY HAAREYA dabaa ❤️';
+  });
+}
+$('#playSong')?.addEventListener('click',playHaareya);
+$('#musicBtn')?.addEventListener('click',()=>audio.paused?playHaareya():audio.pause());
+visibleAudio?.addEventListener('play',()=>{audio.currentTime=visibleAudio.currentTime;audio.play().catch(()=>{})});
+visibleAudio?.addEventListener('pause',()=>audio.pause());
+
+/* GIFT */
+$('#openGift')?.addEventListener('click',()=>{
+  $('#gift')?.classList.add('open');
+  playHaareya();
+  burst('❤️',12);
+  setTimeout(()=>go(1),650);
+});
+
+/* YES / NO */
+let qi=0;
+const noLines=[
+ 'ABEEE EHHHH NOOOOO 😭😭 YES DABAAAA DUKKARRRRR, BHT MAAR KHAYGIII DOBIIII 😂❤️',
+ 'NO KYA HOTA H BEBUUU 😭 YES DABAAA',
+ 'abeee galat answer 😭❤️ ek baar fir soch',
+ 'GALEECH NO? CHL FIRSE TRY KAR 😂',
+ 'Spelling bol… YES dabaa 😭❤️'
+];
+function renderQ(){
+ $('#qtext').textContent=questions[qi].q;
+ $('#qbar').style.width=(qi/questions.length*100)+'%';
+ $('#reaction').textContent='';
+ $('#qNext').classList.add('hidden');
+}
+$('#yesBtn')?.addEventListener('click',()=>{
+ $('#reaction').textContent=questions[qi].yes;
+ $('#qNext').classList.remove('hidden');
+ burst('❤️',7);
+});
+$('#noBtn')?.addEventListener('click',()=>{
+ $('#reaction').textContent=noLines[qi%noLines.length];
+ burst('😭',3);
+});
+$('#qNext')?.addEventListener('click',()=>{
+ qi++;
+ if(qi<questions.length)renderQ();else go(2);
+});
+renderQ();
+
+/* MEMORY QUIZ */
+const quiz=[
+ ['Hum dobara kaha mile the?',['Seawoods ❤️','Pune','Delhi'],0],
+ ['25 July ke baad kaha gaye the?',['ISKCON 🛕','College','Movie'],0],
+ ['Mujhe tera sabse zyada kya pasand h?',['Tera “bubbuuu” 😭❤️','Teri handwriting','Tera phone'],0],
+ ['26 July wali memory ka vibe?',['meri bebuuu ko pareshan karna 😂','sirf padhai','bilkul boring'],0]
+];
+let qz=0;
+function renderQuiz(){
+ if(qz>=quiz.length){go(3);return}
+ const [q,o,a]=quiz[qz];
+ $('#quizBox').innerHTML='<div class="question">'+q+'</div>'+o.map(x=>'<button class="option quizOpt">'+x+'</button>').join('');
+ $('#quizBtn').classList.add('hidden');
+ document.querySelectorAll('.quizOpt').forEach((b,i)=>b.onclick=()=>{
+  $('#quizBox').insertAdjacentHTML('beforeend','<div class="reaction">'+(i===a?'HURAYYYY 😭❤️ JANTA THA MEKO DUKKARRR, GALEECH CHL AAGE BOL...':'hmmm 😭😂 chal maan liya')+'</div>');
+  $('#quizBtn').textContent=qz===quiz.length-1?'SCRAPBOOK KHOL ❤️':'NEXT →';
+  $('#quizBtn').classList.remove('hidden');
+ });
+ qz++;
+}
+$('#quizBtn')?.addEventListener('click',renderQuiz);
+
+/* SCRAPBOOK */
+photos.forEach((file,i)=>{
+ let d=document.createElement('div');d.className='polaroid '+(i%7===0?'full':'');
+ d.style.setProperty('--r',((i%5)-2)*1.2+'deg');
+ d.innerHTML='<img loading="lazy" src="assets/'+encodeURIComponent(file)+'" alt="our memory"><div class="caption">'+(captions[file]||'meri bebuuu 😭❤️')+'</div><div class="memoryTag">our little memory ❤️</div>';
+ $('#photoGrid')?.appendChild(d);
+});
+videos.forEach(file=>{
+ let d=document.createElement('div');d.className='videoCard';
+ d.innerHTML='<video controls playsinline preload="metadata" src="assets/'+encodeURIComponent(file)+'"></video><div class="caption">'+(videoCaptions[file]||'ek aur memory meri bebuuu ke naam 🥹❤️')+'</div>';
+ $('#videoGrid')?.appendChild(d);
+});
+$('#videosBtn')?.addEventListener('click',()=>go(4));
+
+/* RAPID FIRE */
+const rapid=[['Hug 🫂','Kiss ❤️'],['Masti 😂','Cuddle 🥹'],['Pune 🌆','Mumbai 🌃'],['Bubbuuu 😭','Chidkokluuu 😂'],['Me 😌','Obviously me 😭❤️']];
+let ri=0;
+function renderRapid(){
+ let [a,b]=rapid[ri];
+ $('#rapidQ').textContent=ri===4?'me wala answer soch samajh ke dena 😭😂':'choose jaldi dukkarr 😭';
+ $('#r1').textContent=a;$('#r2').textContent=b;$('#rapidReaction').textContent='';
+}
+function rapidPick(){
+ const l=['HURAYYYY 😭❤️ JANTA THA MEKO','GALEECH CHL AAGE BOL 😂❤️','KYA HOGA RE PGLUUU 😭😂','ABEEE YE TOH EXPECTED THA 😭❤️','HURAYYYY DUKKARRR, PATA THA MEKO 😭❤️'];
+ $('#rapidReaction').textContent=l[ri];burst('💗',4);
+ setTimeout(()=>{ri++;if(ri<rapid.length)renderRapid();else go(6)},450);
+}
+$('#r1')?.addEventListener('click',rapidPick);$('#r2')?.addEventListener('click',rapidPick);
+$('#rapidBtn')?.addEventListener('click',()=>{ri=0;renderRapid();go(5)});
+
+/* BONUS GAMES */
+let mc=[],mo=[],ml=false,moves=0;
+const emojis=['❤️','🐧','💋','🧸','🌸','🥹','❤️','🐧','💋','🧸','🌸','🥹'];
+function startMemory(){
+ mc=[...emojis].sort(()=>Math.random()-.5);mo=[];ml=false;moves=0;
+ $('#memoryScore').textContent='Moves: 0';let b=$('#memoryBoard');b.innerHTML='';
+ mc.forEach((x,i)=>{let e=document.createElement('button');e.className='btn alt';e.style.cssText='height:70px;font-size:30px;padding:0';e.textContent='?';e.onclick=()=>{
+  if(ml||mo.includes(i)||e.textContent!=='?')return;e.textContent=x;mo.push(i);
+  if(mo.length===2){moves++;$('#memoryScore').textContent='Moves: '+moves;let[a,c]=mo;
+   if(mc[a]===mc[c]){mo=[];$('#memoryReaction').textContent='HURAYYYY 😭❤️ JANTA THA MEKO DUKKARR';burst('💗',3)}
+   else{ml=true;setTimeout(()=>{b.children[a].textContent='?';b.children[c].textContent='?';mo=[];ml=false},600)}
+  }
+ };b.appendChild(e)});
+}
+$('#memoryStart')?.addEventListener('click',startMemory);
+
+const date=[['Pehle kya?',['Coffee ☕','Long drive 🚗','ISKCON 🛕']],['Phir?',['Masti 😂','Movie 🎬','Walk 🫶🏻']],['End me?',['Hug 🫂','Kiss ❤️','Bas chipak ke baithna 🥹']]];
+let di=0;
+function dateRender(){
+ if(di>=date.length){$('#dateGame').innerHTML='<div class="stamp">DATE LOCKED ❤️</div>';$('#dateReaction').textContent='HURAYYYY 😭❤️ ab ye date mere saath karni padegi dukkarr';return}
+ let[q,o]=date[di];$('#dateGame').innerHTML='<div class="question" style="min-height:80px">'+q+'</div>'+o.map(x=>'<button class="option dateOpt">'+x+'</button>').join('');
+ document.querySelectorAll('.dateOpt').forEach(b=>b.onclick=()=>{di++;$('#dateReaction').textContent='GALEECH CHL AAGE BOL 😂❤️';setTimeout(dateRender,250)});
+}
+dateRender();
+
+const clues=[['25 July wali jagah?',['Seawoods','Pune','Delhi']],['Temple wali memory?',['ISKCON','Siddhivinayak','Golden Temple']],['Me tujhe kya bolta hu?',['bebuuu','madam ji','boss']]];
+let ci=0;
+function clueRender(){
+ if(ci>=clues.length){$('#clueGame').innerHTML='<div class="stamp">UNLOCKED 🔐❤️</div>';$('#clueReaction').textContent='KYA HOGA RE PGLUUU 😭❤️ sab yaad h tujhe';return}
+ let[q,o]=clues[ci];$('#clueGame').innerHTML='<div class="question" style="min-height:90px">'+q+'</div>'+o.map(x=>'<button class="option clueOpt">'+x+'</button>').join('');
+ document.querySelectorAll('.clueOpt').forEach((b,i)=>b.onclick=()=>{if(i===0){ci++;$('#clueReaction').textContent='HURAYYYY 😭❤️ JANTA THA MEKO';setTimeout(clueRender,250)}else $('#clueReaction').textContent='ABEEE NOOO 😭😂 ek baar aur soch dukkarr'});
+}
+clueRender();
+
+const mystery=['“mujhe ek virtual kiss bhej 😭❤️”','“mujhe BUBBUUU bolke voice note bhej 😂❤️”','“abhi mujhe irritate karna compulsory h dukkarr 😭😂”'];
+document.querySelectorAll('.mystery').forEach(b=>b.onclick=()=>{$('#mysteryReaction').textContent=mystery[Number(b.dataset.i)];burst('💌',4)});
+
+$('#letterBtn')?.addEventListener('click',()=>go(7));
+$('#finalBtn')?.addEventListener('click',()=>{go(8);playHaareya()});
+</script>
+</body>
+</html>
